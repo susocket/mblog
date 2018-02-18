@@ -1,0 +1,11 @@
+<!-- index.html -->
+{% extends 'base.html' %}
+{% block title %}欢迎光临我的博客{% endblock %}
+{% block headmessage %}本站文件列表{% endblock %}
+{% block content %}
+	{% for post in posts %}
+		<p>
+			<a href='/post/{{post.slug}}'>{{post.title}}</a>
+		</p>
+	{% endfor %}
+{% endblock %}
