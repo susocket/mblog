@@ -25,3 +25,6 @@ def showpost(request, slug):
             return HttpResponse(html)
     except:
         return redirect('/')
+
+def favicon(request):
+    return HttpResponse('/static/images/favicon.ico');

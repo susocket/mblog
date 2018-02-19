@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from mainsite.views import homepage, showpost
+from mainsite import views as mv
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', homepage),
-    path('post/<int:slug>', showpost),
+    path('', mv.homepage),
+    path('post/<int:slug>', mv.showpost),
+    path('favicon.ico', mv.favicon),
 ]

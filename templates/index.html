@@ -1,11 +1,26 @@
 <!-- index.html -->
 {% extends 'base.html' %}
+{% load markdown_deux_tags %}
 {% block title %}欢迎光临我的博客{% endblock %}
 {% block headmessage %}本站文件列表{% endblock %}
 {% block content %}
 	{% for post in posts %}
-		<p>
-			<a href='/post/{{post.slug}}'>{{post.title}}</a>
-		</p>
+		<div class='panel panel-default'>
+				<div class='panel-heading'>
+						<p>
+							<a href='/post/{{post.slug}}'>{{post.title}}</a>
+						</p>
+				</div>
+				<div class='panel-body'>
+						<p>
+							{{post.body | markdown }}
+						</p>
+				</div>
+				<div class='panel-footer'>
+						<p>
+							发布时间：{{post.pub_date | date:"Y-m-d h:m:s"}}
+						</p>
+				</div>
+		</div>
 	{% endfor %}
 {% endblock %}
